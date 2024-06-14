@@ -1,18 +1,24 @@
-// app.js
-const membersModule = require('./members');
+const { getAll, getByName, getById, remove, insert, updateName } = require('./members');
 
 // Example usage
-console.log(membersModule.getAll());
+(async () => {
+  // Insert a new member
+  await insert({ id: 5, username: "Ajinkya", email: "ajinkya@gmail.com" });
 
-const newMember = { "id": 4, "username": "ajay4", "email": "ajayprajapati.prajapati661@gmail.com" };
-membersModule.insert(newMember);
-console.log(membersModule.getAll());
+  // Get all members
+  console.log(await getAll());
 
-console.log(membersModule.getByName("ajay2"));
+  // Get member by username
+  console.log(await getByName("Ajinkya"));
 
-membersModule.remove(2);
-console.log(membersModule.getAll());
+  // Get member by ID
+  console.log(await getById(2));
 
-// Update the username of a member
-membersModule.updateName(1, "newAjay");
-console.log(membersModule.getById(1));
+  // Update member's username by ID
+  await updateName(2, "Shridhar");
+  console.log(await getAll());
+
+  // Remove member by ID
+  await remove(4);
+  console.log(await getAll());
+})();
