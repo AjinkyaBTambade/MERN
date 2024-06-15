@@ -1,10 +1,12 @@
 const express = require('express');
+const bodyParser=require('body-parser')
 const fs = require('fs');
-const app = express();
 const port = 3000;
 const fileName = 'data.json';
 
-app.use(express.json()); // Middleware to parse JSON request bodies
+var app = express();
+
+app.use(bodyParser.json()); // Middleware to parse JSON request bodies
 
 // Endpoint to respond with a greeting message
 app.get('/api/hello', (req, res) => {
@@ -24,14 +26,17 @@ app.get('/api/people', (req, res) => {
     
 
 
-// // Placeholder for handling login
-// app.post('/api/login', (req, res) => {
-//   const { username, password } = req.body;
+// Placeholder for handling login
+app.post('/api/login', (req, res) => {
+  let url = req.url;
+  let data = req.body;
+  console.log(data);  // Log the received data
 
-//   // Implement login functionality here
-//   // For now, we'll just send back the received username and password
-//   res.json({ username, password });
-// });
+  // Implement login functionality here
+  // For now, we'll just send back the received username and password
+  res.send("Post Request Handled Successfully");
+});
+
 
 // Start the server
 app.listen(port, () => {
