@@ -23,9 +23,6 @@ app.get('/api/people', (req, res) => {
   })
 });
 
-    
-
-
 // Placeholder for handling login
 app.post('/api/login', (req, res) => {
   let url = req.url;
@@ -36,6 +33,8 @@ app.post('/api/login', (req, res) => {
   // For now, we'll just send back the received username and password
   res.send("Post Request Handled Successfully");
 });
+
+
 
 
 // Start the server

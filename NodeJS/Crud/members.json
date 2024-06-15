@@ -7,16 +7,22 @@
   {
     "id": 2,
     "username": "Shridhar",
-    "email": "Aditya661@gmil.com"
+    "email": "shridhar@gmil.com"
   },
   {
-    "id": 5,
+    "id": 3,
     "username": "Ajinkya",
     "email": "ajinkya@gmail.com"
   },
   {
+    "id": 4,
+    "username": "Aditya",
+    "email": "ajinkya123@gmail.com"
+  },
+  {
     "id": 5,
-    "username": "Ajinkya",
-    "email": "ajinkya@gmail.com"
-  }
+    "username": "Aj",
+    "email": "aj@gmail.com"
+  },
+  {}
 ]
