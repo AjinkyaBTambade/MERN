@@ -1,10 +1,10 @@
 const express = require('express');
-const bodyParser=require('body-parser')
+const bodyParser = require('body-parser');
 const fs = require('fs');
 const port = 3000;
-const fileName = 'data.json';
+const fileName = 'credentials.json';
 
-var app = express();
+const app = express();
 
 app.use(bodyParser.json()); // Middleware to parse JSON request bodies
 
@@ -13,28 +13,20 @@ app.get('/api/hello', (req, res) => {
   res.send('Hello from server');
 });
 
-// Endpoint to read and send the content of data.json
-app.get('/api/people', (req, res) => {
-  let filename ="data.json";
-  fs.readFile(filename,(err, data)=>{
-                                     let strPeople=data.toString();
-                                     let people =JSON.parse(strPeople);
-                                     res.json(people);
-  })
-});
 
 // Placeholder for handling login
 app.post('/api/login', (req, res) => {
-  let url = req.url;
-  let data = req.body;
-  console.log(data);  // Log the received data
-
-  // Implement login functionality here
-  // For now, we'll just send back the received username and password
-  res.send("Post Request Handled Successfully");
-});
-
-
+    let url=req.url;
+    let data = req.body;
+    if(data.email==="aj@gmail.com" && data.password==="password5")
+      {
+        res.send("Welcome "+ data.email);
+      }
+      else
+      {
+        res.send("Invalid User....")
+      }
+  });
 
 
 // Start the server

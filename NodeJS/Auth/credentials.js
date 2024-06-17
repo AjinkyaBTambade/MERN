@@ -1,27 +1,7 @@
 [
-    {
-      "id": 1,
-      "username": "ajay",
-      "email": "ajayprajapati@gmail.com"
-    },
-    {
-      "id": 2,
-      "username": "Shridhar",
-      "email": "Aditya661@gmil.com"
-    },
-    {
-      "id": 5,
-      "username": "Ajinkya",
-      "email": "ajinkya@gmail.com"
-    },
-    {
-      "id": 5,
-      "username": "Ajinkya",
-      "email": "ajinkya@gmail.com"
-    },
-    {
-      "id": 5,
-      "username": "Ajinkya",
-      "email": "ajinkya@gmail.com"
-    }
-  ]
+  { "email": "ajay@gmail.com", "password": "password1" },
+  { "email": "shridhar@gmail.com", "password": "password2" },
+  { "email": "ajinkya@gmail.com", "password": "password3" },
+  { "email": "aditya@gmail.com", "password": "password4" },
+  { "email": "aj@gmail.com", "password": "password5" }
+]
