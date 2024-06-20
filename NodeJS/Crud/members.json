@@ -15,14 +15,14 @@
     "email": "ajinkya@gmail.com"
   },
   {
-    "id": 4,
-    "username": "Aditya",
-    "email": "aditya@gmail.com"
-  },
-  {
     "id": 5,
     "username": "Aj",
     "email": "aj@gmail.com"
   },
-  {}
+  {},
+  {
+    "id": 5,
+    "username": "Ajinkya",
+    "email": "ajinkya@gmail.com"
+  }
 ]
