@@ -1,0 +1,15 @@
+{
+  "name": "webserver",
+  "version": "1.0.0",
+  "description": "This is simple Front End node js web server app for hosting static resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ravi Tambade",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  }
+}
