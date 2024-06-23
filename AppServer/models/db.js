@@ -1,21 +1,14 @@
-//database connectivity
-const mysql=require('mysql');
-//connection string
-const conUri={
-    host:'localhost',
-    user:'root',
-    password:'password',
-    database:'transflower'
-};
+const mysql = require('mysql2');
 
-const con=mysql.createConnection(conUri);
-con.connect((err)=>{
-    if(!err){
-        console.log("connection is successful with mysql DB");
-    }
-    else{
-        console.log(err);
-    }
+// Connection pool configuration
+const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: 'password', // replace with your actual password
+    database: 'transflower', // replace with your actual database name
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
-module.exports=con;
+module.exports = pool.promise(); // Use promise wrapper to enable async/await
