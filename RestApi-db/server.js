@@ -1,17 +1,15 @@
 const express = require('express');
-const routes= require('./router');
+const bodyParser = require('body-parser');
+const employeeController = require('./controllers/employeeController');
 
- const app=express();
+const app = express();
+app.use(bodyParser.json());
 
- //middleware configuration
- //app.use(express.urlencoded({extended:true}));
- //app.use(express.json);
+app.get('/api/employees', employeeController.getAll);
+app.post('/api/employees', employeeController.insert);
+app.put('/api/employees', employeeController.update);
+app.delete('/api/employees', employeeController.delete);
 
- app.get('/',(req,res)=>{
-    res.send("welcome");
- })
- routes(app);
- //listen st port 3800
- app.listen(3800,()=>{
-    console.log("listen at port 3800");
- });
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});

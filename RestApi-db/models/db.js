@@ -4,7 +4,7 @@ var conUri ={
     host : "localhost",
     user : "root",
     password: "password",
-    database :"netbanking"
+    database :"transflower"
 }
 var conn = mysql.createConnection(conUri);
 conn.connect((err)=>{
