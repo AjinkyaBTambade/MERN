@@ -1,9 +1,9 @@
-const controller = require('./controller/Controller');
-const authcontroller = require('./controller/Authcontroller');
+const controller=require('./controllers/Controller');
 
-module.exports = function (app) {
-    app.get("/", controller.index);
-    app.get("/login", authcontroller.login);
-    app.post("/login", authcontroller.postLogin);
-
+// routing api at server side
+module.exports=function(app){
+    app.get('/',controller.home);
+    app.get('/about',controller.about);
+    app.get('/contact',controller.contactus);
+    app.get('/service',controller.services);
 }
