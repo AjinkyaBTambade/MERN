@@ -1,9 +1,10 @@
-const controller=require('./controllers/Controller');
+const controller=require('./Controllers/Controller');
+const controller=require('./Controllers/AuthController')
 
 // routing api at server side
+
 module.exports=function(app){
-    app.get('/',controller.home);
-    app.get('/about',controller.about);
-    app.get('/contact',controller.contactus);
-    app.get('/service',controller.services);
+    app.get("/", controller.index);
+    app.get("/login", authcontroller.login);
+    app.post("/login", authcontroller.postLogin);
 }
