@@ -1,5 +1,5 @@
 const jwt=require('jsonwebtoken');
-const dal = require("../model/dal");
+const dal = require("../Models/dal");
 // secrete key to generate token
 let secreteKey="its Ajinkya"
 
@@ -22,7 +22,7 @@ exports.postLogin=(req,res)=>{
         console.log(token);
 
          let model = dal.getPersonalDetails();
-         res.render("../views/myProfile.ejs", model);
+         res.render("../views/profile.ejs", model);
     }
     else
     {

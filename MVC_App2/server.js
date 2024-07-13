@@ -1,16 +1,18 @@
-// modules
-const express= require('express');
-const router=require('./router');
-const app=express();
+const express = require('express');
+const router = require('./router'); // Import the router function
+const app = express();
 
-// middleware configuration
-app.use(express.urlencoded({extended: true}));
+// Middleware configuration
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// api routing
-router(app);
-app.set('viewengine','ejs')
-// server listen at port 9090
-app.listen(9090,()=>{
-    console.log("server listening at port number 9090");
-})
+// API routing
+router(app); // Use the router function and pass the app
+
+// Set the view engine
+app.set('view engine', 'ejs');
+
+// Server listen at port 9090
+app.listen(9090, () => {
+    console.log("Server listening at port number 9090");
+});
