@@ -1,11 +1,9 @@
-const routes = require('./controllers/HomeController');
+const controller=require('./controllers/Controller');
 
+// routing api at server side
 module.exports=function(app){
-    app.get('/',routes.home);
+    app.get('/',controller.home);
     app.get('/about',controller.about);
     app.get('/contact',controller.contactus);
     app.get('/service',controller.services);
-    app.get('/index',controller.services);
-
-
 }

@@ -6,6 +6,6 @@
     "\\MVC_App\\Models",
     "\\MVC_App\\views"
   ],
-  "SelectedNode": "\\MVC_App\\router.js",
+  "SelectedNode": "\\MVC_App\\controllers\\Controller.js",
   "PreviewInSolutionExplorer": false
 }
