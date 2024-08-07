@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const dal=require("../model/dal");
 
 // secretekey for genetaing jwt token
-const secretKey = "hey its sanika";
+const secretKey = "AJ Here";
 
 exports.orders = async (req, res) => {
 
