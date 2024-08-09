@@ -12,7 +12,7 @@ exports.orders = async (req, res) => {
   let extractedUser = jwt.verify(token, secretKey);
   var orders = await dal.orderData();
 
-  if (extractedUser.client == "bhorsanika0239@gmail.com") {
+  if (extractedUser.client == "ajthewarrior2123@gmail.com") {
     res.send(orders);
     console.log(orders);
   } else {
