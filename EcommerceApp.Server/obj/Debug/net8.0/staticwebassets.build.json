@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "vy1C+0f/YC2NLa4vixNIedHdHl2T9ScCT+yD7uaIaZs=",
+  "Source": "EcommerceApp.Server",
+  "BasePath": "_content/EcommerceApp.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\Github Repo\\MERN\\ecommerceapp.client\\ecommerceapp.client.esproj",
+      "Version": 2,
+      "Source": "ecommerceapp.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

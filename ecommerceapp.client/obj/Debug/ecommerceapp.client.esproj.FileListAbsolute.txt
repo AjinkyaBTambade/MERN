@@ -1,0 +1,1 @@
+D:\Github Repo\MERN\ecommerceapp.client\obj\Debug\ecommerceapp.client.esproj.CoreCompileInputs.cache
