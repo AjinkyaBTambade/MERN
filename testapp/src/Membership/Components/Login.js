@@ -1,24 +1,21 @@
-//Lambda expression
-//Arrow function
-//Anonymous function
-//varible storing address of unnamed function 
-//( constfunction pointer)
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // If you're using react-router for navigation
  
-
 const Login=()=> {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    const history = useNavigate();
 
+    const navigator = useNavigate();
 
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
+
+          console.log(email);
+          console.log(password);
           // Replace with your login endpoint
           const response = await fetch('http://localhost:5124/login', {
               method: 'POST',
@@ -31,10 +28,9 @@ const Login=()=> {
           if (!response.ok) {
               throw new Error('Login failed');
           }
-
           const data = await response.json();
           localStorage.setItem('jwtToken', data.token); // Save the JWT token
-          history.push('/dashboard'); // Redirect after successful login
+          navigator.push('/dashboard'); // Redirect after successful login
       } catch (error) {
           setError(error.message);
       }

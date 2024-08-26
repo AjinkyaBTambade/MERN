@@ -21,14 +21,13 @@ const List=()=>{
             <h2>Todays Fresh Flowers</h2>
             <Link to="/products/create">Add New Flower</Link>
             <ul>
-                {products.map(product => (
-                    <li key={product.id}>
-                        <Link to={`/products/${product.id}`}>{product.title}</Link>
-                        {' | '}
-                        <Link to={`/products/update/${product.id}`}>Update</Link>
-                        {' | '}
-                        <button onClick={() => handleDelete(product.id)}>Delete</button>
-                    </li>
+                {
+                    products.map(product => (
+                                            <li key={product.id}>
+                                                <Link to={`/products/${product.id}`}>{product.title}</Link>
+                                                {' | '}<Link to={`/products/update/${product.id}`}>Update</Link>
+                                                {' | '} <button onClick={() => handleDelete(product.id)}>Delete</button>
+                                            </li>
                 ))}
             </ul>
              <Outlet/>
