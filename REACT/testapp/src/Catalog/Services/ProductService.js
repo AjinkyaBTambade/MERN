@@ -3,6 +3,7 @@ import axios from 'axios';
 const API_URL = 'http://localhost:5124/products'; // Replace with your API URL
 
 const ProductService = {
+  
   getAllProducts: async () => {
     try {
       const response = await axios.get(API_URL);
