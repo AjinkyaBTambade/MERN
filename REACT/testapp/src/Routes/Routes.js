@@ -16,10 +16,12 @@ import Create from '../Catalog/Components/Products/Create';
 import Update from '../Catalog/Components/Products/Update';
 import Delete from '../Catalog/Components/Products/Delete';
 
-import Customers from '../CRM/Compnents/Customers';
-import Customer from '../CRM/Compnents/Customer';
-import CustomerCreate from '../CRM/Compnents/CustomerCreate';
-import CustomerEdit from '../CRM/Compnents/CustomerEdit'; 
+import CustomerList from '../CRM/Components/Customers/CustomerList';
+import CustomerDetails from '../CRM/Components/Customers/CustomerDetails';
+//import CreateCustomer from '../CRM/Components/Customers/Create';
+//import UpdateCustomer from '../CRM/Components/Customers/Update';
+//import DeleteCustomer from '../CRM/Components/Customers/Delete';
+
 
 import Dashboard from '../BI/Components/Dashboard';
 import LineChart from '../BI/Components/Charts/LineChart';
@@ -31,32 +33,35 @@ import CatalogCategory from '../Membership/Components/CatalogCategory';
 
 const AppRoutes = () => (
   <Routes>
-          <Route path="/"   element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<CatalogCategory />} />
-         
-          <Route path="tap" element={<Tap />} />
-          
-          <Route path="products" element={<List />}/>
-          <Route path="products/:productId" element={<Details />} />
-          <Route path="products/update/:productId" element={<Update />} />
-          <Route path="products/delete/:productId" element={<Delete />} />
-          <Route path="products/create" element={<Create />} />
+    <Route path="/" element={<Home />} />
+    <Route path="about" element={<About />} />
+    <Route path="contact" element={<Contact />} />
+    <Route path="login" element={<Login />} />
+    <Route path="register" element={<CatalogCategory />} />
 
- 
-        <Route path="customers" element={<Customers />} />
-        <Route path="customers/add" element={<CustomerCreate />} />
-        <Route path="customers/edit/:id" element={<CustomerEdit />} />
-        <Route path="customers/:id" element={<Customer />} />
-        
+    <Route path="tap" element={<Tap />} />
 
-          <Route path="dashboard" element={<Dashboard />}>
-                  <Route path="line" element={<LineChart/>}></Route>
-                  <Route path="bar" element={<BarChart/>}></Route>
-                  <Route path="pie" element={<PieChart/>}></Route>
-          </Route>
+    <Route path="products" element={<List />} />
+    <Route path="products/:productId" element={<Details />} />
+    <Route path="products/update/:productId" element={<Update />} />
+    <Route path="products/delete/:productId" element={<Delete />} />
+    <Route path="products/create" element={<Create />} />
+
+
+    <Route path="customers/:customerId" element={<CustomerDetails />} />
+    <Route path="customers" element={<CustomerList />} />
+     {/*<Route path="customers/add" element={<CreateCustomer />} />
+    <Route path="customers/update/:customerId" element={<UpdateCustomer />} />
+    <Route path="customers/delete/:customerId" element={<DeleteCustomer />} />*/}
+
+
+
+
+    <Route path="dashboard" element={<Dashboard />}>
+      <Route path="line" element={<LineChart />}></Route>
+      <Route path="bar" element={<BarChart />}></Route>
+      <Route path="pie" element={<PieChart />}></Route>
+    </Route>
   </Routes>
 );
 
