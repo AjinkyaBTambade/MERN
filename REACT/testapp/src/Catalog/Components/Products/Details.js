@@ -1,21 +1,34 @@
-const Details=()=>{
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ProductServiceInMem from "../../Services/ProductServiceInMem";
 
-    const currentProduct={ id: 1, title: 'Lily',
-                            description:'Wedding Flower',
-                             unitprice:8, quantity:2300,
-                             likes:8734 
-                        };
-        return(
-        <div>
-            <h2>Todays Flower Gerbra:</h2>
-            <img src="/images/flowers/gerbera.jpg" width="100" height="100"/>
-            <p> Title: {currentProduct.title}</p>
-            <p> Description:{currentProduct.description}</p>
-            <p> UnitPrice:15 Rs.</p>
-            <p> Stock Available:67000</p>
-            <p> Likes:89000</p>
-        </div>
-    );
+const Details = () => {
+  let { productId } = useParams();
+  productId = parseInt(productId); 
+  console.log(productId);
+
+  const [currentProduct, setCurrentProduct] = useState(null);
+
+  useEffect(() => {
+    const product = ProductServiceInMem.getById(productId);
+    setCurrentProduct(product);
+  }, [productId]);
+
+  if (!currentProduct) {
+    return <div>Product not found</div>;
+  }
+
+  return (
+    <div>
+      <h2>Todays Flower: {currentProduct.title}</h2>
+      <img src={`/images/flowers/${currentProduct.title.toLowerCase()}.jpg`} width="100" height="100" alt={currentProduct.title} />
+      <p>Title: {currentProduct.title}</p>
+      <p>Description: {currentProduct.description}</p>
+      <p>Unit Price: {currentProduct.unitprice}</p>
+      <p>Stock Available: {currentProduct.quantity}</p>
+      <p>Likes: {currentProduct.likes}</p>
+    </div>
+  );
 }
 
 export default Details;

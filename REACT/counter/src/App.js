@@ -21,6 +21,7 @@ function App() {
         return prevCounter - 1;
       }
       return prevCounter;
+      
     });
   };
 
