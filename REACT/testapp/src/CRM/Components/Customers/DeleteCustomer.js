@@ -1,11 +1,19 @@
+import { useParams, useNavigate } from "react-router-dom";
+import CustomerService from "../../Services/CustomerService";
+import { useEffect } from "react";
 
-// const Delete=()=>{
-//     return (
-//         <div>
-//             <p>Are you sure ?</p>
-//             <button>Yes</button> | <button>No</button>
-//         </div>
-//     );
-// }
+const DeleteCustomer = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-// export default Delete;
+    useEffect(() => {
+        if (id) {
+            CustomerService.remove(parseInt(id));
+            navigate("/customers");
+        }
+    }, [id, navigate]);
+
+    return null;
+}
+
+export default DeleteCustomer;

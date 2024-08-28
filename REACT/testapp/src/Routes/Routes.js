@@ -18,9 +18,9 @@ import Delete from '../Catalog/Components/Products/Delete';
 
 import CustomerList from '../CRM/Components/Customers/CustomerList';
 import CustomerDetails from '../CRM/Components/Customers/CustomerDetails';
-//import CreateCustomer from '../CRM/Components/Customers/Create';
-//import UpdateCustomer from '../CRM/Components/Customers/Update';
-//import DeleteCustomer from '../CRM/Components/Customers/Delete';
+import CreateCustomer from '../CRM/Components/Customers/CreateCustomer';
+import UpdateCustomer from '../CRM/Components/Customers/UpdateCustomer';
+import DeleteCustomer from '../CRM/Components/Customers/DeleteCustomer';
 
 
 import Dashboard from '../BI/Components/Dashboard';
@@ -50,9 +50,9 @@ const AppRoutes = () => (
 
     <Route path="customers/:customerId" element={<CustomerDetails />} />
     <Route path="customers" element={<CustomerList />} />
-     {/*<Route path="customers/add" element={<CreateCustomer />} />
-    <Route path="customers/update/:customerId" element={<UpdateCustomer />} />
-    <Route path="customers/delete/:customerId" element={<DeleteCustomer />} />*/}
+    <Route path="customers/add" element={<CreateCustomer />} />
+    <Route path="customers/update/:id" element={<UpdateCustomer />} />
+    <Route path="customers/delete/:id" element={<DeleteCustomer />} />
 
 
 

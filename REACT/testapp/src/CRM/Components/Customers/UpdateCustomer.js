@@ -1,66 +1,55 @@
-// import React, { useState, useEffect } from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import CustomerService from "../../Services/CustomerService";
 
-// const customers = [
-//     { id: 1, name: 'IBM', contactnumber:'9334856891', email:'savita.j@ibm.com',location:'USA'},
-//     { id: 2, name: 'Microsoft',contactnumber:'98823794', email:'savita.j@ibm.com',location:'USA' },
-//     { id: 3, name: 'Persistent',contactnumber:'9448283894', email:'shamala.nene@pspl.com',location:'India' },
-//     { id: 4, name: 'Infosys',contactnumber:'9881284795', email:'charulata@infy.com',location:'India' },
-//     { id: 5, name: 'Sony',contactnumber:'9884578459', email:'charan.patil@sony.com',location:'Japan' },
-//     { id: 6, name: 'Samsung',contactnumber:'974534592', email:'rajan.more@samsung.com',location:'South Koria' },
-// ];
+const UpdateCustomer = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const [customer, setCustomer] = useState({ Name: '', Email: '', phoneNumber: '' });
 
-// function CustomerEdit() {
+    useEffect(() => {
+        if (id) {
+            const existingCustomer = CustomerService.getById(parseInt(id));
+            if (existingCustomer) {
+                setCustomer(existingCustomer);
+            }
+        }
+    }, [id]);
 
-//     const { id } = useParams();
-//     const navigate = useNavigate();
-//     const [customer, setcustomer] = useState({ name: '', location: '' });
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCustomer({ ...customer, [name]: value });
+    };
 
-//     useEffect(() => {
-//         const existingcustomer = customers.find(p => p.id === parseInt(id));
-//         if (existingcustomer) {
-//             setcustomer(existingcustomer);
-//         }
-//     }, [id]);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        CustomerService.update(customer);
+        navigate("/customers");
+    };
 
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-//         console.log('Updating customer:', { id, ...customer });
-//         navigate('/customers');
-//     };
+    return (
+        <div>
+            <h2>Update Customer</h2>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Name:
+                    <input type="text" name="Name" value={customer.Name} onChange={handleChange} />
+                </label>
+                <br />
+                <label>
+                    Email:
+                    <input type="email" name="Email" value={customer.Email} onChange={handleChange} />
+                </label>
+                <br />
+                <label>
+                    Phone Number:
+                    <input type="text" name="phoneNumber" value={customer.phoneNumber} onChange={handleChange} />
+                </label>
+                <br />
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    );
+}
 
-//     const handleChange = (e) => {
-//         const { name, value } = e.target;
-//         setcustomer((prev) => ({ ...prev, [name]: value }));
-//         console.log(e);
-//     };
-
-//     return (
-//         <div>
-//             <h1>Edit customer</h1>
-//             <form onSubmit={handleSubmit}>
-//                 <label>Name:
-//                 <input type="text" name="name" value={customer.name}  onChange={handleChange} required />
-//                 </label>
-//                 <br />
-//                 <label>
-//                     contact Number:
-//                     <input name="contactnumber" value={customer.contactnumber} onChange={handleChange} required />
-//                 </label>
-//                 <label>
-//                     Email:
-//                     <input name="email" value={customer.email} onChange={handleChange} required />
-//                 </label>
-//                 <label>
-//                     Location:
-//                     <input name="location" value={customer.location} onChange={handleChange} required />
-//                 </label>
-
-//                 <br />
-//                 <button type="submit">Update customer</button>
-//             </form>
-//         </div>
-//     );
-// }
-
-// export default CustomerEdit;
+export default UpdateCustomer;
