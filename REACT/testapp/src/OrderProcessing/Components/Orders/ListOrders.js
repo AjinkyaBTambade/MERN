@@ -12,7 +12,7 @@ const ListOrders = () => {
             <ul>
                 {orders.map((order) => (
                     <li key={order.id}>
-                        Order ID: {order.id} - {order.customerName} - {order.totalAmount} USD
+                        Order ID: {order.id} - {order.customerName} - {order.totalAmount}
                         {' | '}
                         <Link to={`/orders/update/${order.id}`}>Update</Link>
                         {' | '}
