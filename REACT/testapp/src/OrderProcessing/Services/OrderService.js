@@ -1,4 +1,4 @@
-const initialOrders = [
+const Orders = [
     { id: 1, customerName: 'Ajinkya', totalAmount: 250, orderDate: '2024-08-01', status: 'Processing' },
     { id: 2, customerName: 'Shridhar', totalAmount: 150, orderDate: '2024-08-05', status: 'Shipped' },
     { id: 3, customerName: 'Bhupendra', totalAmount: 300, orderDate: '2024-08-10', status: 'Delivered' },
@@ -7,7 +7,7 @@ const initialOrders = [
     { id: 6, customerName: 'AJ', totalAmount: 500, orderDate: '2024-08-18', status: 'Processing' }
 ];
 
-localStorage.setItem('orders', JSON.stringify(initialOrders));
+localStorage.setItem('orders', JSON.stringify(Orders));
 
 
 const OrderService = {
