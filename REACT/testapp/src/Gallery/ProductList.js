@@ -19,6 +19,17 @@ const ProductList = () => {
     );
   };
 
+  const handleUnLike = (productId) => {
+
+    setProducts((prev) =>
+        prev.map((product) =>
+        product.id === productId
+          ? { ...product, likes: product.likes - 1 }
+          : product
+      )
+    );
+  };
+
   
  /* useEffect(() => {
     console.log('Products updated:', products);
@@ -28,7 +39,7 @@ const ProductList = () => {
   return (
     <div>
       {products.map((product) => (
-                    <Product key={product.id} product={product} onLike={handleLike} />
+                    <Product key={product.id} product={product} onLike={handleLike} onUnLike={handleUnLike}/>
       ))}
     </div>
   );
