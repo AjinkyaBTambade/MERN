@@ -38,6 +38,7 @@ import MembershipForm from '../Membership/Components/MembershipForm';
 import CatalogCategory from '../Membership/Components/CatalogCategory';
 
 
+import Gallery from '../Catalog/Components/Gallery/Gallery';
 
 const AppRoutes = () => (
   <Routes>
@@ -48,6 +49,8 @@ const AppRoutes = () => (
     <Route path="register" element={<CatalogCategory />} />
 
     <Route path="tap" element={<Tap />} />
+
+    <Route path="gallery" element={<Gallery />} />
 
     <Route path="products" element={<List />} />
     <Route path="products/:productId" element={<Details />} />
