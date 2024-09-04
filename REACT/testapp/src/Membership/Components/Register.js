@@ -3,18 +3,15 @@ import { useState } from "react";
 
 function Register() {
 
-
 const [member,setMember]=useState({
   fullname:'Ojas Sharma',
   location:'Pune',
   email:'ojas.sharma@gmail.com',
-  password:'tam'
+  password:''
 });
 
 const handleChange=(e)=>{
   console.log("Change happened......"+ e.target);
-  console.log(e.target.name);
-  console.log(e.target.value);
   const {name , value}=e.target;
   setMember((preMember)=>({
                             ...preMember,  [name]:value

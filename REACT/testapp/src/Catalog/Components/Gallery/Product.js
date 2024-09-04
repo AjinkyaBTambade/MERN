@@ -1,7 +1,7 @@
 import React from 'react';
 import Counter from './Counter';
 
-const Product = ({ product, onLike,onUnLike }) => {
+const Product = ({ product, onLike,onUnlike }) => {
 
   return (
     <div>
@@ -9,8 +9,8 @@ const Product = ({ product, onLike,onUnLike }) => {
       <h2>{product.title}</h2>
       <p>Price: ${product.unitprice}</p>
       <p>likes: {product.likes}</p>
-      <Counter likes={product.likes} onCounterClick={() => onLike(product.id)}  onCounterUClick={() => onUnLike(product.id)}></Counter>
-
+      <Counter likes={product.likes} onCounterLike={() => onLike(product.id)}
+                                     onCounterUnLike={() => onUnlike(product.id)}></Counter>
     </div>
   );
 };

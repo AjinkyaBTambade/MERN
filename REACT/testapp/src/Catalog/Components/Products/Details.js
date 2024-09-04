@@ -1,25 +1,18 @@
-import { useEffect, useState } from "react";
-import ProductServiceInMem from "../../Services/ProductServiceInMem";
-import { useParams } from "react-router-dom";
-
 const Details=()=>{
 
-   const { productId } = useParams();
-   const [product, setProduct]=useState( ProductServiceInMem.getById(Number(productId)));
-
-   useEffect(()=>{
-    let theProduct=ProductServiceInMem.getById(Number(productId));
-    setProduct(theProduct)
-   });
-
+    const currentProduct={ id: 1, title: 'Lily',
+                            description:'Wedding Flower',
+                             unitprice:8, quantity:2300,
+                             likes:8734 
+                        };
         return(
         <div>
             <h2>Todays Flower Gerbra:</h2>
-            <img src={product.imageurl} height="100"/>
-            <p> Title: {product.title}</p>
-            <p> Description:{product.description}</p>
-            <p> UnitPrice:{product.unitprice}</p>
-            <p> Stock Available:{product.quantity}</p>
+            <img src="/images/flowers/gerbera.jpg" width="100" height="100"/>
+            <p> Title: {currentProduct.title}</p>
+            <p> Description:{currentProduct.description}</p>
+            <p> UnitPrice:15 Rs.</p>
+            <p> Stock Available:67000</p>
             <p> Likes:89000</p>
         </div>
     );

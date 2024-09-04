@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const MembershipForm = () => {
-  const [membershipData, setMembershipData] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     password:'',
@@ -10,17 +10,18 @@ const MembershipForm = () => {
 
  const handleChange = (e) => {
     const { name, value } = e.target;
-    setMembershipData(prevData => ({
-                              ...prevData, [name]: value
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
     }));
   };
 
  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', membershipData);
+    console.log('Form submitted:', formData);
 
     // Clear the form after submission
-    setMembershipData({
+    setFormData({
       name: '',
       email: '',
       membership: '',
@@ -34,15 +35,15 @@ const MembershipForm = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" value={membershipData.name} onChange={handleChange} required />
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
         </div>
         <div>
           <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" value={membershipData.email} onChange={handleChange} required />
+          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
         <div>
           <label htmlFor="email">Password:</label>
-          <input type="password" id="password" name="password" value={membershipData.password} onChange={handleChange} required />
+          <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
         </div>
 
 
@@ -50,15 +51,15 @@ const MembershipForm = () => {
           <label>Membership Type:</label>
           <div>
             <label>
-            <input type="radio" name="membership" value="Gold" checked={membershipData.membership === 'Gold'} onChange={handleChange}/>
+            <input type="radio" name="membership" value="Gold" checked={formData.membership === 'Gold'} onChange={handleChange}/>
             Gold
             </label>
             <label>
-            <input type="radio" name="membership" value="Silver" checked={membershipData.membership === 'Silver'} onChange={handleChange}/>
+            <input type="radio" name="membership" value="Silver" checked={formData.membership === 'Silver'} onChange={handleChange}/>
              Silver
             </label>
             <label>
-            <input type="radio" name="membership" value="Platinum" checked={membershipData.membership === 'Platinum'} onChange={handleChange} />
+            <input type="radio" name="membership" value="Platinum" checked={formData.membership === 'Platinum'} onChange={handleChange} />
               Platinum
             </label>
           </div>

@@ -1,26 +1,25 @@
 import { useState } from "react";
-
-const Counter=({likes,onCounterClick,onCounterUClick})=>{
-   
+//              value,callback, callback
+const Counter=({likes,onCounterLike,onCounterUnLike})=>{
     const [count,setCount]=useState(likes);
 
+    //event handlers
     const increment=()=>{
         setCount(count+1); 
-        onCounterClick(count);
+        onCounterLike(count);
     }
 
     const decrement=()=>{
         setCount(count-1); 
-        onCounterUClick(count);
+        onCounterUnLike(count);
     }
 
     return(
         <div>  
-             <button onClick={decrement}>UnLike</button>
-            <label>{count}</label>
-            <button onClick={increment}>Like</button>
+             <button onClick={decrement}> <i class="fa fa-thumbs-o-down" ></i></button>
+                <label>Likes :{count}</label>
+                <button onClick={increment}> <i class="fa fa-thumbs-o-up" ></i></button>
         </div>
-
     )
 }
 
