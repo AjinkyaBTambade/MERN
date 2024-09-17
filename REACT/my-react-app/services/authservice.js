@@ -12,7 +12,7 @@ let users = [
 
 const AuthService = {
 
-    // Validate email and password for login
+    // Check email and password for login
     validate(email, password) {
         let user = users.find((theUser) => (theUser.email === email && theUser.password === password));
         return user !== undefined;
