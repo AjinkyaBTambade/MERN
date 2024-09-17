@@ -28,22 +28,14 @@ const AuthService = {
         return users.find((theUser) => (theUser.id === id));
     },
 
-    // Register a new user
+   // Register a new user
     register(theUser) {
-        // Check if the user already exists based on the email
-        const userExists = users.some((user) => user.email === theUser.email);
-        if (userExists) {
-            throw new Error('User already exists with this email');
-        }
-
-        // Add an id to the new user
         const newId = users.length + 1;
         const newUser = { id: newId, ...theUser };
 
-        // Add the new user to the users array
         users.push(newUser);
         console.log("New user registered:", newUser);
-    },
+},
 
     // Update an existing user's information
     update(theUser) {
