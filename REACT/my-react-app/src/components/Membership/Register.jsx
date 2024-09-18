@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthService from '../services/authservice';
+import AuthService from '../../services/authservice';
 
  
  function Register() {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Details from './Details';
- import ProductService from '../services/productservice';
+ import ProductService from '../../services/productservice';
 function List() {
    const flowers= ProductService.getAll();
   

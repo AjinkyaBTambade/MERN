@@ -13,5 +13,3 @@ const Details=(props)=>{
 
 export default Details;
 
-
-//<p>{props.product.description}</p>

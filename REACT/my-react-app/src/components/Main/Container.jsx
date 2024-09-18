@@ -1,6 +1,6 @@
 import {BrowserRouter } from "react-router-dom";
-import Navbar from "./NavBar";
-import AppRoutes from "../routes/route";
+import Navbar from "./Navbar";
+import AppRoutes from "../../routes/route";
 function Container() {
     return (
       <div>

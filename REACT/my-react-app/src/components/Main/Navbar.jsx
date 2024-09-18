@@ -7,7 +7,8 @@ const Navbar = () => (
         <Link to="/contact">Contact</Link> |
         <Link to="/services">Services</Link> |
         <Link to="/login">Login</Link> |
-        <Link to="/register">Register</Link>
+        <Link to="/register">Register</Link> |
+        <Link to="/bi"> Charts</Link>|
     </nav>
 );
 export default Navbar;

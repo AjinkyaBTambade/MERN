@@ -1,5 +1,5 @@
 
-import Container from './components/Container'
+import Container from './components/Main/Container'
 function App() {
   return (
     <>
@@ -10,4 +10,4 @@ function App() {
     </>
   )
 }
-export default App
+export default App;
