@@ -23,7 +23,7 @@ function Register() {
         // Register the user through AuthService
         AuthService.register(newUser);
 
-        // Optionally reset the form after registration
+        // Reset The Form After Registration
         setEmail('');
         setPassword('');
         setFirstname('');
