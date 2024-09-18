@@ -1,17 +1,16 @@
 import { useState } from "react";
-import AuthService from "../services/authservice"; // Import the AuthService
+import AuthService from "../services/authservice"; 
 
 function Register() {
-    // Define state for each registration field individually
+  
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [contactnumber, setContactnumber] = useState('');
 
-    // Registration logic
+  
     const onRegister = () => {
-        // Create a newUser object using the state values
         const newUser = {
             email,
             password,
@@ -20,10 +19,9 @@ function Register() {
             contactnumber
         };
 
-        // Register the user through AuthService
         AuthService.register(newUser);
 
-        // Reset The Form After Registration
+        // Clear The Form After Registration
         setEmail('');
         setPassword('');
         setFirstname('');
