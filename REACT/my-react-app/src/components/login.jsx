@@ -5,23 +5,23 @@ function Login() {
     //Define state for login
     const [email, setEmail]=useState('ravi.tambade@transflower.in');
     const [password, setPassword]=useState('seed');
- 
+
     //change state based on text change event of text box (input)
     const onChangeEmail=(event)=>{
       setEmail(event.target.value);   //state is always changed using setter method defined in state
     }
- 
+
     const onChangePassword=(event)=>{
       setPassword(event.target.value);
     }
- 
+
     const onLogin=(event)=>{
       console.log("on login method is getting invoked");
         try{
           let status=false;
           console.log(email, password);
           status=AuthService.validate(email, password);
-          if(status ===true){    
+          if(status ===true){     
             console.log("login successful");
           }
           else{  
@@ -32,7 +32,7 @@ function Login() {
           console.log(error);
         }
     }
- 
+  
   return (
     <>
       <div>
@@ -61,5 +61,5 @@ function Login() {
     </>
   )
 }
- 
+
 export default Login;
