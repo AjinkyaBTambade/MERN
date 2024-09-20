@@ -1,37 +1,47 @@
 import { useState } from "react";
-import AuthService from "../../services/authservice"; // Import the AuthService
+import AuthService from "../../services/authservice";
 
 function Register() {
-    // Define state for registration
-    const [newUser, setNewUser] = useState({
-        email: '',
-        password: '',
-        firstname: '',
-        lastname: '',
-        contactnumber: ''
-    });
+    const [id, setId] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [contactnumber, setContactnumber] = useState('');
+    const [message, setMessage] = useState('');
 
-    // Handle input change for registration fields
-    const handleRegisterChange = (event) => {
-        setNewUser({
-            ...newUser,
-            [event.target.name]: event.target.value
+    const onRegister = (event) => {
+        event.preventDefault();
+        if (!id || !email || !password || !firstname || !lastname || !contactnumber) {
+            setMessage('Please fill in all required fields.');
+            return;
+        }
+        const newUser = {
+            id,
+            email,
+            password,
+            firstname,
+            lastname,
+            contactnumber
+        };
+        AuthService.register(newUser).then(response => {
+            if (response.success) {
+                setMessage('Registration successful!');
+            } 
+            else {
+                setMessage('Registration failed. Please try again.');
+            }
+        })
+        .catch(() => {
+            setMessage('Registration failed. Please try again.');
         });
-    };
-
-    // Registration logic
-    const onRegister = () => {
-        // Register the user through AuthService
-        AuthService.register(newUser);
-
-        // Optionally reset the form after registration
-        setNewUser({
-            email: '',
-            password: '',
-            firstname: '',
-            lastname: '',
-            contactnumber: ''
-        });
+        console.log("First Name:" +firstname,"Last Name:" +lastname,"Contact Number:" +contactnumber,"Email Id:" +email,"Password:" +password);
+        /*setId('');
+        setEmail('');
+        setPassword('');
+        setFirstname('');
+        setLastname('');
+        setContactnumber('');*/
     };
 
     return (
@@ -40,33 +50,39 @@ function Register() {
             <table>
                 <tbody>
                     <tr>
-                        <td>Email</td>
-                        <td> <input type="email" name="email" value={newUser.email} onChange={handleRegisterChange} /> </td>
+                        <td>ID:</td>
+                        <td><input type="text" value={id} onChange={(e) => setId(e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td>Password</td>
-                        <td> <input type="password" name="password" value={newUser.password} onChange={handleRegisterChange} /></td>
+                        <td>First Name:</td>
+                        <td><input type="text" value={firstname} onChange={(e) => setFirstname(e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td>First Name</td>
-                        <td> <input type="text" name="firstname" value={newUser.firstname} onChange={handleRegisterChange} /> </td>
+                        <td>Last Name:</td>
+                        <td><input type="text" value={lastname} onChange={(e) => setLastname(e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td>Last Name</td>
-                        <td> <input type="text" name="lastname" value={newUser.lastname} onChange={handleRegisterChange}/> </td>
+                        <td>Contact Number:</td>
+                        <td><input type="text" value={contactnumber} onChange={(e) => setContactnumber(e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td>Contact Number</td>
-                        <td> <input type="text" name="contactnumber" value={newUser.contactnumber} onChange={handleRegisterChange}/></td>
+                        <td>Email ID:</td>
+                        <td><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td> <button onClick={onRegister}>Register</button></td>
+                        <td>
+                            <button onClick={onRegister}>Register</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+            {message && <p>{message}</p>}
         </div>
     );
 }
-
 export default Register;
