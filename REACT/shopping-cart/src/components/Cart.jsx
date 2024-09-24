@@ -4,7 +4,9 @@ import CartContext from '../context/CartContext';
 //state less component
 
 function Cart() {
+
   const { cart, removeItem, getTotalPrice } = useContext(CartContext);
+  
   return (
     <div>
       <h2>My  Shopping Cart</h2>

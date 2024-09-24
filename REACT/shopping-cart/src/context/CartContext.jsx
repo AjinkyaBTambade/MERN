@@ -9,11 +9,11 @@ const CartContext = createContext();
 //Store
 // Create a provider component
 export function CartProvider({ children }) {
+
   //Step 3: Define global State
-
   const [cart, setCart] = useState([]);
-  //Step 4:Define Reducers
 
+  //Step 4:Define Reducers
   // Add item to cart
   const addItem = (item) => {
     setCart((prevCart) => [...prevCart, item]);
