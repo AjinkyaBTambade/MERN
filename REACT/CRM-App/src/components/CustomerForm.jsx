@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const CustomerForm = ({ onSubmit, initialData = {} }) => {
   const [customer, setCustomer] = useState({
@@ -6,7 +6,7 @@ const CustomerForm = ({ onSubmit, initialData = {} }) => {
     lastName: '',
     email: '',
     contactNumber: '',
-    ...initialData, // pre-fill if data is provided (for update)
+    ...initialData, //  Pre-Fill form if the data is available
   });
 
   const handleChange = (e) => {
@@ -19,46 +19,18 @@ const CustomerForm = ({ onSubmit, initialData = {} }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(customer); // Callback to the parent (Create or Update)
+    onSubmit(customer); // Pass customer data to parent component
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="firstName"
-        placeholder="First Name"
-        value={customer.firstName}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
-        name="lastName"
-        placeholder="Last Name"
-        value={customer.lastName}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={customer.email}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
-        name="contactNumber"
-        placeholder="Contact Number"
-        value={customer.contactNumber}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit">Submit</button>
-    </form>
-  );
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="firstName" placeholder="First Name" value={customer.firstName} onChange={handleChange} required />
+        <input type="text" name="lastName" placeholder="Last Name" value={customer.lastName} onChange={handleChange} required />
+        <input type="email" name="email" placeholder="Email" value={customer.email} onChange={handleChange} required />
+        <input type="text" name="contactNumber" placeholder="Contact Number" value={customer.contactNumber} onChange={handleChange} required />
+        <button type="submit">Submit</button>
+      </form>
+    );
 };
 
 export default CustomerForm;

@@ -8,9 +8,11 @@ const Customers = () => {
   return (
     <div>
       <h2>Customer List</h2>
+      <Link to="/add"><button>Add New Customer</button></Link>
       <table>
         <thead>
           <tr>
+          <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Contact</th>
@@ -20,11 +22,13 @@ const Customers = () => {
         <tbody>
           {customers.map((customer) => (
             <tr key={customer.id}>
-              <td>{customer.firstName} {customer.lastName}</td>
+              <td>{customer.id}</td>
+              <td>{customer.firstName}</td>
+              <td>{customer.lastName}</td>
               <td>{customer.email}</td>
               <td>{customer.contactNumber}</td>
               <td>
-                <Link to={`/details/${customer.id}`}>Details</Link> {/* Link to customer details */}
+                <Link to={`/details/${customer.id}`}>Details</Link>
                 {' | '}
                 <Link to={`/update/${customer.id}`}>Update</Link>
                 {' | '}
@@ -33,6 +37,7 @@ const Customers = () => {
             </tr>
           ))}
         </tbody>
+
       </table>
     </div>
   );

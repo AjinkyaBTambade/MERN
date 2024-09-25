@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
-import  CustomerContext  from '../context/CustomerContext';
 import { useParams, useNavigate } from 'react-router-dom';
+import CustomerContext from '../context/CustomerContext';
 import CustomerForm from './CustomerForm';
 
 const UpdateCustomer = () => {
@@ -11,12 +11,14 @@ const UpdateCustomer = () => {
 
   useEffect(() => {
     const customerToEdit = customers.find((c) => c.id === parseInt(id));
-    if (customerToEdit) setInitialData(customerToEdit);
+    if (customerToEdit) {
+      setInitialData(customerToEdit);
+    }
   }, [id, customers]);
 
   const handleSubmit = (updatedCustomer) => {
     updateCustomer({ ...updatedCustomer, id: parseInt(id) });
-    navigate('/');
+    navigate('/'); // Redirect to customer list after update
   };
 
   return (

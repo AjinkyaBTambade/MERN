@@ -1,15 +1,15 @@
 import { useContext } from 'react';
-import  CustomerContext  from '../context/CustomerContext';
-import CustomerForm from './CustomerForm';
 import { useNavigate } from 'react-router-dom';
+import CustomerContext from '../context/CustomerContext';
+import CustomerForm from './CustomerForm';
 
 const CreateCustomer = () => {
   const { addCustomer } = useContext(CustomerContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (newCustomer) => {
+  const handleSubmit = (newCustomer) => { 
     addCustomer(newCustomer);
-    navigate('/');
+    navigate('/'); // This is to navigate to customer list after creation of new customer
   };
 
   return (

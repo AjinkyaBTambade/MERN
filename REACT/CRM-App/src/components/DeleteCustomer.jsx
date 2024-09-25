@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import  CustomerContext  from '../context/CustomerContext';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import CustomerContext from '../context/CustomerContext';
 
 const DeleteCustomer = () => {
   const { deleteCustomer, customers } = useContext(CustomerContext);
