@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import CreateCustomer from '../crud/CreateCustomer';
 import Customers from '../crud/Customers';
 import UpdateCustomer from '../crud/UpdateCustomer';
 import DeleteCustomer from '../crud/DeleteCustomer';
 
-const Route = () => {
+const AppRoutes = () => {
   return (
     <Router>
       <Routes>
@@ -17,4 +17,4 @@ const Route = () => {
   );
 };
 
-export default Route;
+export default AppRoutes;
