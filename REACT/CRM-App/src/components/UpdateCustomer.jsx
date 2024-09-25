@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import  CustomerContext  from '../context/CustomerContext';
 import { useParams, useNavigate } from 'react-router-dom';
-import CustomerForm from '../components/CustomerForm';
+import CustomerForm from './CustomerForm';
 
 const UpdateCustomer = () => {
   const { customers, updateCustomer } = useContext(CustomerContext);

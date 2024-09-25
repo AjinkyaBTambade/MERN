@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import CreateCustomer from '../crud/CreateCustomer';
-import Customers from '../crud/Customers';
-import UpdateCustomer from '../crud/UpdateCustomer';
-import DeleteCustomer from '../crud/DeleteCustomer';
+import Customers from '../components/Customers';
+import CreateCustomer from '../components/CreateCustomer';
+import UpdateCustomer from '../components/UpdateCustomer';
+import DeleteCustomer from '../components/DeleteCustomer';
 
 const AppRoutes = () => {
   return (
