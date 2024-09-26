@@ -3,7 +3,7 @@ import CustomerContext from '../context/CustomerContext';
 import { Link } from 'react-router-dom';
 
 const Customers = () => {
-  const { customers, addCustomer } = useContext(CustomerContext);
+  const { customers } = useContext(CustomerContext);
 
   return (
     <div>
