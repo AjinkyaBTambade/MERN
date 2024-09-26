@@ -8,7 +8,6 @@ const CustomerDetails = () => {
   
   const customer = customers.find((c) => c.id === parseInt(id));
 
-  
   return (
     <div>
       {customer ? (
