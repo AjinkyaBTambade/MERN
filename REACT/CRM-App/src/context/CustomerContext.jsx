@@ -1,36 +1,55 @@
 import React, { createContext, useState, useEffect } from 'react';
 import CustomerService from '../services/CustomerService'; // Import the service
 
-// Step 1: Create context
+
 const CustomerContext = createContext();
 
-// Step 2: Define Provider
 export function CustomerProvider({ children }) {
   const [customers, setCustomers] = useState([]);
 
- 
+  
   useEffect(() => {
     const fetchCustomers = () => {
-      const initialCustomers = CustomerService.getAll(); // Get All Customers from service
-      setCustomers(initialCustomers);
+      
+      const storedCustomers = localStorage.getItem('customers');
+      if (storedCustomers) {
+        setCustomers(JSON.parse(storedCustomers)); // Use stored data
+      } else {
+        const initialCustomers = CustomerService.getAll();
+        setCustomers(initialCustomers);
+        localStorage.setItem('customers', JSON.stringify(initialCustomers)); // Save to localStorage
+      }
     };
 
     fetchCustomers();
   }, []); 
 
+ 
+  const saveCustomersToLocalStorage = (updatedCustomers) => {
+    localStorage.setItem('customers', JSON.stringify(updatedCustomers));
+  };
+
+  
   const addCustomer = (customer) => {
-    CustomerService.insert(customer); 
-    setCustomers([...customers, { ...customer, id: customers.length + 1 }]);
+    const nextId = customers.length > 0 ? Math.max(...customers.map(c => c.id)) + 1 : 1;
+    const newCustomer = { ...customer, id: nextId };
+
+    const updatedCustomers = [...customers, newCustomer];
+    setCustomers(updatedCustomers);
+    saveCustomersToLocalStorage(updatedCustomers); 
   };
 
   const updateCustomer = (updatedCustomer) => {
-    CustomerService.update(updatedCustomer);
-    setCustomers(customers.map(c => (c.id === updatedCustomer.id ? updatedCustomer : c)));
+    const updatedCustomers = customers.map(c => (c.id === updatedCustomer.id ? updatedCustomer : c));
+    setCustomers(updatedCustomers); 
+    saveCustomersToLocalStorage(updatedCustomers); 
   };
 
+  
   const deleteCustomer = (id) => {
-    CustomerService.remove(id); 
-    setCustomers(customers.filter(customer => customer.id !== id));
+    const updatedCustomers = customers.filter(customer => customer.id !== id);
+    setCustomers(updatedCustomers); 
+    saveCustomersToLocalStorage(updatedCustomers);
   };
 
   return (

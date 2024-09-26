@@ -3,7 +3,7 @@ import CustomerContext from '../context/CustomerContext';
 import { Link } from 'react-router-dom';
 
 const Customers = () => {
-  const { customers } = useContext(CustomerContext);
+  const { customers, addCustomer } = useContext(CustomerContext);
 
   return (
     <div>
@@ -12,7 +12,7 @@ const Customers = () => {
       <table>
         <thead>
           <tr>
-          <th>ID</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Contact</th>
@@ -23,8 +23,7 @@ const Customers = () => {
           {customers.map((customer) => (
             <tr key={customer.id}>
               <td>{customer.id}</td>
-              <td>{customer.firstName}</td>
-              <td>{customer.lastName}</td>
+              <td>{customer.firstName} {customer.lastName}</td>
               <td>{customer.email}</td>
               <td>{customer.contactNumber}</td>
               <td>
@@ -37,7 +36,6 @@ const Customers = () => {
             </tr>
           ))}
         </tbody>
-
       </table>
     </div>
   );

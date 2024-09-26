@@ -9,7 +9,7 @@ const CreateCustomer = () => {
 
   const handleSubmit = (newCustomer) => { 
     addCustomer(newCustomer);
-    navigate('/'); // This is to navigate to customer list after creation of new customer
+    navigate('/'); // navigate to customer list after creation of new customer
   };
 
   return (
