@@ -1,5 +1,5 @@
-import { legacy_createStore as createStore } from "redux"
-import counterReducer from "./reducers"
+import { legacy_createStore as createStore} from "redux";
+import CustomerReducer from "./CustomerReducer";
 
-const store=createStore(counterReducer);
+const store=createStore(CustomerReducer);
 export default store;
