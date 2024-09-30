@@ -6,7 +6,7 @@ const CustomerForm = ({ onSubmit, initialData = {} }) => {
     lastName: '',
     email: '',
     contactNumber: '',
-    ...initialData, // Pre-fill form if the data is available
+    ...initialData, //  Pre-Fill form if the data is available
   });
 
   const handleChange = (e) => {
