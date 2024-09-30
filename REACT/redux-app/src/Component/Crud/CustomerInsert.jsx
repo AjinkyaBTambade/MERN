@@ -1,3 +1,4 @@
+// src/components/Crud/CustomerInsert.jsx
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +15,8 @@ const CustomerInsert = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addCustomer({ ...customer, id: Date.now() }));
+    const newCustomer = { ...customer, id: Date.now() };
+    dispatch(addCustomer(newCustomer));
     navigate('/');
   };
 

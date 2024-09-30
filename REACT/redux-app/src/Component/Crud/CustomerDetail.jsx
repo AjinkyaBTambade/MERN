@@ -1,12 +1,13 @@
-// src/components/Customer.jsx
+// src/components/Crud/CustomerDetail.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const Customer = () => {
-  const customers  = useSelector((state) => state.customer.customers);
+const CustomerDetail = () => {
   const { id } = useParams();
-  const customer = customers.find(c => c.id === parseInt(id));
+  const customer = useSelector((state) =>
+    state.customer.customers.find((c) => c.id === parseInt(id))
+  );
 
   if (!customer) {
     return <h2>Customer not found</h2>;
@@ -14,13 +15,13 @@ const Customer = () => {
 
   return (
     <div>
-        <h2>Customer Details</h2>
-        <p><strong>First Name:</strong> {customer.firstName}</p>
-        <p><strong>Last Name:</strong> {customer.lastName}</p>
-        <p><strong>Email:</strong> {customer.email}</p>
-        <p><strong>Contact Number:</strong> {customer.contactnumber}</p>
+      <h2>Customer Details</h2>
+      <p><strong>First Name:</strong> {customer.firstName}</p>
+      <p><strong>Last Name:</strong> {customer.lastName}</p>
+      <p><strong>Email:</strong> {customer.email}</p>
+      <p><strong>Contact Number:</strong> {customer.contactnumber}</p>
     </div>
   );
 };
 
-export default Customer;
+export default CustomerDetail;

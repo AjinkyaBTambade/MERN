@@ -1,22 +1,17 @@
 // src/routes/AppRoutes.jsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Customers from '../Customers';
+import CustomerDetail from '../Crud/CustomerDetail';
 import CustomerInsert from '../Crud/CustomerInsert';
 import CustomerUpdate from '../Crud/CustomerUpdate';
 import CustomerDelete from '../Crud/CustomerDelete';
-import Customer from '../Crud/Customer';
-import Navbar from '../Navbar';
-
-
+import CustomerContainer from '../CustomerContainer';
 
 const AppRoutes = () => (
   <>
-    <Navbar />
     <Routes>
-      <Route path="/" element={<Customers />} />
-      
-      <Route path="/customers/:id" element={<Customer />} />
+      <Route path="/" element={<CustomerContainer />} />
+      <Route path="/customers/:id" element={<CustomerDetail />} />
       <Route path="/insert" element={<CustomerInsert />} />
       <Route path="/update/:id" element={<CustomerUpdate />} />
       <Route path="/delete/:id" element={<CustomerDelete />} />

@@ -1,8 +1,9 @@
-const Customer = 'customers';
+// src/components/service/CustomerService.js
+const CUSTOMER_KEY = 'customers';
 
 export const CustomerService = {
   getCustomers: () => {
-    const customers = localStorage.getItem(Customer);
+    const customers = localStorage.getItem(CUSTOMER_KEY);
     return customers ? JSON.parse(customers) : [];
   },
   
@@ -14,7 +15,7 @@ export const CustomerService = {
   addCustomer: (customer) => {
     const customers = CustomerService.getCustomers();
     customers.push(customer);
-    localStorage.setItem(Customer, JSON.stringify(customers));
+    localStorage.setItem(CUSTOMER_KEY, JSON.stringify(customers));
   },
 
   updateCustomer: (updatedCustomer) => {
@@ -22,12 +23,12 @@ export const CustomerService = {
     customers = customers.map(customer =>
       customer.id === updatedCustomer.id ? updatedCustomer : customer
     );
-    localStorage.setItem(Customer, JSON.stringify(customers));
+    localStorage.setItem(CUSTOMER_KEY, JSON.stringify(customers));
   },
 
   deleteCustomer: (id) => {
     let customers = CustomerService.getCustomers();
     customers = customers.filter(customer => customer.id !== id);
-    localStorage.setItem(Customer, JSON.stringify(customers));
+    localStorage.setItem(CUSTOMER_KEY, JSON.stringify(customers));
   }
 };
