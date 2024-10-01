@@ -1,4 +1,4 @@
-// src/components/service/CustomerService.js
+
 const CUSTOMER_KEY = 'customers';
 
 export const CustomerService = {

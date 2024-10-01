@@ -1,4 +1,3 @@
-// src/components/Crud/CustomerUpdate.jsx
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -16,7 +15,6 @@ const CustomerUpdate = () => {
     if (existingCustomer) {
       setCustomer(existingCustomer);
     } else {
-      // Optionally, handle the case where the customer is not found
       navigate('/');
     }
   }, [id, customers, navigate]);
@@ -36,44 +34,16 @@ const CustomerUpdate = () => {
       <h2>Update Customer</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>First Name:</label>
-          <input 
-            type="text" 
-            name="firstName" 
-            value={customer.firstName} 
-            onChange={handleChange} 
-            required 
-          />
+          <label>First Name:</label><input type="text" name="firstName" value={customer.firstName} onChange={handleChange} required />
         </div>
         <div>
-          <label>Last Name:</label>
-          <input 
-            type="text" 
-            name="lastName"  
-            value={customer.lastName} 
-            onChange={handleChange} 
-            required 
-          />
+          <label>Last Name:</label><input type="text" name="lastName" value={customer.lastName} onChange={handleChange} required />
         </div>
         <div>
-          <label>Email:</label>
-          <input 
-            type="email" 
-            name="email"
-            value={customer.email} 
-            onChange={handleChange} 
-            required 
-          />
+          <label>Email:</label><input type="email" name="email" value={customer.email} onChange={handleChange} required />
         </div>
         <div>
-          <label>Contact Number:</label>
-          <input 
-            type="text" 
-            name="contactnumber" 
-            value={customer.contactnumber} 
-            onChange={handleChange} 
-            required 
-          />
+          <label>Contact Number:</label><input type="text" name="contactnumber" value={customer.contactnumber} onChange={handleChange} required />
         </div>
         <button type="submit">Update</button>
       </form>

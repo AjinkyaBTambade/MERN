@@ -1,4 +1,4 @@
-// src/components/CustomerDelete.jsx
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCustomer, setCustomers } from '../../redux/CustomerAction';
@@ -12,7 +12,6 @@ const CustomerDelete = () => {
   const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
-    // Ensure customers are loaded
     if (customers.length === 0) {
       dispatch(setCustomers());
     } else {
@@ -26,7 +25,6 @@ const CustomerDelete = () => {
       dispatch(deleteCustomer(customer.id));
       navigate('/');
     } else {
-      // Handle case where customer doesn't exist
       alert('Customer not found.');
       navigate('/');
     }

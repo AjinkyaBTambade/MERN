@@ -1,4 +1,3 @@
-// src/redux/CustomerReducer.js
 import { SET_CUSTOMERS, ADD_CUSTOMERS, UPDATE_CUSTOMERS, DELETE_CUSTOMER } from './CustomerAction';
 
 const initialState = {
@@ -7,6 +6,7 @@ const initialState = {
 
 const CustomerReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case SET_CUSTOMERS:
       return { ...state, customers: action.payload };
 

@@ -1,8 +1,7 @@
-// src/components/CustomerContainer.jsx
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCustomers } from '../redux/CustomerAction';
-import Customer from './Crud/CustomerDetail'; // Adjust based on actual component usage
 import { Link } from 'react-router-dom';
 
 const CustomerContainer = () => {
@@ -17,7 +16,8 @@ const CustomerContainer = () => {
 
   return (
     <div>
-      <h1>Customer's Information</h1>
+      <h1>Simple React Redux Example</h1>
+      <h2>Customer's Information</h2>
       <Link to="/insert">Insert New Customer</Link>
       <ul>
         {customers.map((customer) => (
