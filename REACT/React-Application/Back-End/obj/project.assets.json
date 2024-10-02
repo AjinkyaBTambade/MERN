@@ -774,11 +774,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Github Repo\\MERN\\REACT\\ProductApi\\ProductApi.csproj",
+      "projectUniqueName": "E:\\Github Repo\\MERN\\REACT\\React-Application\\Back-End\\ProductApi.csproj",
       "projectName": "ProductApi",
-      "projectPath": "E:\\Github Repo\\MERN\\REACT\\ProductApi\\ProductApi.csproj",
+      "projectPath": "E:\\Github Repo\\MERN\\REACT\\React-Application\\Back-End\\ProductApi.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "E:\\Github Repo\\MERN\\REACT\\ProductApi\\obj\\",
+      "outputPath": "E:\\Github Repo\\MERN\\REACT\\React-Application\\Back-End\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"

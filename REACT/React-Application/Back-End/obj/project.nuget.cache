@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vpftHTkwcUI=",
+  "dgSpecHash": "VIiHa0IrAQg=",
   "success": true,
-  "projectFilePath": "E:\\Github Repo\\MERN\\REACT\\ProductApi\\ProductApi.csproj",
+  "projectFilePath": "E:\\Github Repo\\MERN\\REACT\\React-Application\\Back-End\\ProductApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.8\\microsoft.aspnetcore.authentication.jwtbearer.8.0.8.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.5\\microsoft.aspnetcore.openapi.8.0.5.nupkg.sha512",
