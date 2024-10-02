@@ -1,69 +1,40 @@
-// services/ProductServiceFetch.js
-class ProductServiceFetch {
+const baseUrl = 'http://localhost:5124'; 
 
-    constructor() {   
-        this.apiBaseUrl = 'http://localhost:5124/products'; 
-        // Replace with your API base URL
-    }
+const ProductServiceFetch = {
 
-    // Fetch all products
-    async getAllProducts() {
-        const response = await fetch(this.apiBaseUrl);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+    getAllProducts: async () => {
+        const response = await fetch(`${baseUrl}/products`);
         return await response.json();
-    }
+    },
 
-    // Fetch a single product by ID
-    async getProductById(id) {
-        const response = await fetch(`${this.apiBaseUrl}/${id}`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+    getProductById: async (id) => {
+        const response = await fetch(`${baseUrl}/products/${id}`);
         return await response.json();
-    }
+    },
 
-    // Create a new product
-    async createProduct(product) {
-        const response = await fetch(this.apiBaseUrl, {
+    createProduct: async (product) => {
+        const response = await fetch(`${baseUrl}/products`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(product),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(product)
         });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
         return await response.json();
-    }
+    },
 
-    // Update an existing product
-    async updateProduct(id, product) {
-        const response = await fetch(`${this.apiBaseUrl}/${id}`, {
+    updateProduct: async (id, product) => {
+        const response = await fetch(`${baseUrl}/products/${id}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(product),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(product)
         });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
         return await response.json();
-    }
-
-    // Delete a product
-    async deleteProduct(id) {
-        const response = await fetch(`${this.apiBaseUrl}/${id}`, {
-            method: 'DELETE',
+    },
+    
+    deleteProduct: async (id) => {
+        await fetch(`${baseUrl}/products/${id}`, {
+            method: 'DELETE'
         });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return await response.json();
     }
-}
+};
 
-export default new ProductServiceFetch();
+export default ProductServiceFetch;

@@ -1,3 +1,5 @@
+// src/components/DeleteProduct.jsx
+
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -9,7 +11,7 @@ const DeleteProduct = () => {
     const navigate = useNavigate();
 
     const handleDelete = () => {
-        dispatch(deleteProduct(id));
+        dispatch(deleteProduct(parseInt(id)));
         navigate('/');
     };
 
