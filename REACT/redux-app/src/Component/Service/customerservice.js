@@ -1,7 +1,6 @@
-
 const CUSTOMER_KEY = 'customers';
-
 export const CustomerService = {
+  
   getCustomers: () => {
     const customers = localStorage.getItem(CUSTOMER_KEY);
     return customers ? JSON.parse(customers) : [];
